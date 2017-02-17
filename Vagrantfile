@@ -48,4 +48,4 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
     #shell.args = %q{/etc/sudoers.d/root_ssh_agent "Defaults env_keep += \"SSH_AUTH_SOCK\""}
     end
 	end
- end
+end

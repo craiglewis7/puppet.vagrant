@@ -37,6 +37,14 @@ SSH_FIX_FILE="/etc/sudoers.d/root_ssh_agent"
 
 	fi
 
+#Copy the Public Vagrant Key from authorized_keys
+echo "Copying the Vagrant Public key to $USERNAME, root and the Shared Folder..."
+sudo su - $USERNAME -c cat /home/vagrant/.ssh/authorized_keys > /root/.ssh/authorized_keys /vagrant/vagrant.pub
+echo "Copy is now Complete... Add the vagrant,pub to your known_hosts file (~/.ssh/known_hosts)"
+echo "You should now be able to ssh using $USERNAME@192.168.100.XX"
+
+echo "Executing the known_hosts.sh script for you!"
+
 
 
 
