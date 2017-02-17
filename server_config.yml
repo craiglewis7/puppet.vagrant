@@ -1,0 +1,30 @@
+#Server Configurations
+
+#Server01
+  #Server Name
+- name: master
+  #Server Hostname
+  hostname: puppet.master.com
+  #Box to Use
+  box: ubuntu/trusty64
+  #Box URL
+  url: https://atlas.hashicorp.com/ubuntu/boxes/trusty64
+  # automatic start on 'vagrant up'
+  autostart: true
+  #Static IP Address
+  ip: 192.168.100.10
+  #SSH Port
+  ssh: 2222
+  #SSH Keys
+  authorize: ~/.ssh/id_rsa.pub
+  keys: ~/.ssh/id_rsa
+  knownhosts: ~/.ssh/known_hosts
+  #Custom Virtualbox Configuration
+  memory: 1024
+  cpus: 2
+  # shared folders
+  folders:
+  # custom bash provisioning files
+
+
+
