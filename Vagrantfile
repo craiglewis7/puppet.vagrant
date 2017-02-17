@@ -16,7 +16,6 @@ require 'yaml'
 
 #Server YAML config file to load
 servers = YAML.load_file("server_config.yml")
-#ssh = YAML.load_file("ssh_config.yml")
  
 Vagrant.configure(VAGRANT_API_VERSION) do |config|
  
@@ -40,12 +39,8 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
  	  #Shell script to create new SSH user
-    config.vm.provision :shell, :path => "ssh.sh"
-    
-    #Fix for SSH_AUTH_SOCK error in /etc/sudoers.d/
-    #config.vm.provision :shell do |shell|
-    #shell.inline = "touch $1 && chmod 0440 $1 && echo $2 > $1"
-    #shell.args = %q{/etc/sudoers.d/root_ssh_agent "Defaults env_keep += \"SSH_AUTH_SOCK\""}
+    #config.vm.provision :shell, :path => "ssh.sh"
+
     end
 	end
 end
