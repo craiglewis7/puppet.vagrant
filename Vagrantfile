@@ -35,15 +35,6 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
       vb.memory = servers["memory"]
       vb.cpus = servers["cpus"]
       end
-
-    #SSH Forwarding Agent Setup
-    config.ssh.private_key_path = [ '~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa' ]
-    config.ssh.forward_agent = true
-
-    #Add github to the list of known_hosts
-    config.vm.provision :shell do |shell|
-    shell.inline = "mkdir $1 && touch $2 && ssh-keyscan -H $3 >> $2 && chmod 600 $2"
-    shell.args = %q{/root/.ssh /root/.ssh/known_hosts "github.com"}
  
     # Prevent annoying "stdin: is not a tty" errors from displaying during 'vagrant up'
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
@@ -57,7 +48,4 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
     #shell.args = %q{/etc/sudoers.d/root_ssh_agent "Defaults env_keep += \"SSH_AUTH_SOCK\""}
     end
 	end
- 
-  end
- 
-end
+ end
